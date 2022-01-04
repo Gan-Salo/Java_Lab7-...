@@ -38,9 +38,9 @@ public class Patient {
 
 	public void input(){
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Patient Fio: ");
+		
 		do
-        {
+        {	System.out.print("ФИО пациента: ");
             if (scanner.hasNextLine()){               
                 this.fio = scanner.nextLine();
             }           
@@ -50,10 +50,10 @@ public class Patient {
                 scanner.nextLine();
             }
         } while (this.fio == "");
-		
-		System.out.print("Patient Age: ");	
+					
 		do
-		{		
+		{	
+			System.out.print("Возраст пациента: ");	
 			try 
 			{				
 				this.age = age_check(scanner.nextInt()); 
@@ -65,9 +65,10 @@ public class Patient {
 			}
 		} while (this.age == -1);
 		
-		System.out.print("Patient Phone: ");
+		scanner.nextLine();
 		do
-        {
+        {	
+			System.out.print("Телефон пациента: ");
             if (scanner.hasNextLine()){               
                 this.phone = scanner.nextLine();
             }           

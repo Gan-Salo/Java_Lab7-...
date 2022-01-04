@@ -32,8 +32,21 @@ public class Zapis {
 		this.doctor.input();
 		this.patient.input();
 		this.cabinet.input();
-		System.out.print("Date: ");
+		
 		this.date = scanner.nextLine();
+		
+		do
+		{	
+			System.out.print("Дата приёма: ");
+			if (scanner.hasNextLine()){               
+                this.date = scanner.nextLine();
+            }           
+            else
+            {
+                System.out.println("Дата приёма введёна неправильно. Повторите ввод.\\n");    
+                scanner.nextLine();
+            }
+		} while (this.date == "");
 	}
 
 	public void output(){
@@ -41,7 +54,8 @@ public class Zapis {
 		this.doctor.output();
 		this.patient.output();
 		this.cabinet.output();
-		System.out.print("Date: " + this.date + "\n");
+		System.out.print("Дата приёма: " + this.date + "\n");
+		
 	}
 
 	public void obch_cost(Help cst) {

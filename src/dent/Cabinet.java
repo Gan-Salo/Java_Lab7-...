@@ -27,7 +27,7 @@ public class Cabinet {
 				return number;
 			}
 			else{ 
-				System.out.print("Number (from 1 to 1000)\n");
+				System.out.print("\"Ошибка. Номер кабинета должен быть в промежутке от 0 до 1000\n");
 				return -1;
 			}	
 		}
@@ -38,43 +38,57 @@ public class Cabinet {
 			}
 			else
 			{ 
-				System.out.print("Ошибка. Площадь кабинета должна быть в промежутке от 0 до 100000\\n\n");
+				System.out.print("Ошибка. Площадь кабинета должна быть в промежутке от 0 до 100000\n");
 				return -1;
 			}	
 		}
 
 		public void input(){
 			Scanner scanner = new Scanner(System.in);					
-			while (number < 0){
-				System.out.print("Number : ");
+			while (number == -1){
+				System.out.print("Номер набинета: ");
 				try 
 				{
 					this.number = num_check(scanner.nextInt()); 
 				}
 				catch (Exception e){
-					System.out.print("Error cabinet number.\n");				
+					System.out.print("Номер кабинета введён неправильно. Повторите ввод.\n");				
 					number = -1;
 					scanner.nextLine();
 				}		
 			}
+			
 			scanner.nextLine();
-			System.out.print("Otdelenie ");
-			this.otdelen = scanner.nextLine();	
-			while (area < 0){
-				System.out.print("Area: ");
-				try {
+			do
+	        {
+				System.out.print("Название отделения: ");
+	            if (scanner.hasNextLine()){               
+	                this.otdelen = scanner.nextLine();
+	            }           
+	            else
+	            {
+	                System.out.println("Название отделения введёно неправильно. Повторите ввод.\\n");    
+	                scanner.nextLine();
+	            }
+	        } while (this.otdelen == "");
+			
+			do
+			{
+				System.out.print("Площадь кабинета: ");
+				try 
+				{
 					this.area = area_check(scanner.nextInt()); 
 				}
 				catch (Exception e){
-					System.out.print("Error. Area\n");				
+					System.out.print("Площадь кабинета введёна неправильно. Повторите ввод.\n");				
 					area = -1;
 					scanner.nextLine();
 				}		
-			}
-			scanner.nextLine();
+			} while (area == -1);			
 		}
+		
 		public void output(){
-			System.out.print("Number: " + this.number + ", Otdelen: " + this.otdelen + ", Area: " + this.area + "\n");
+			System.out.print("Номер кабинета: " + this.number + ", Название отделения: " + this.otdelen + ", Площадь кабинета: " + this.area + "\n");
 		}
 
 	}

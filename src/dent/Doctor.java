@@ -20,7 +20,7 @@ public class Doctor {
 	public Doctor(String fio, int age, String phone, Dolznost dolzn, String kategory){
 		this.fio = fio;
 		this.age = age_check(age);
-		this.phone = phone_check(phone);
+		this.phone = phone;
 		this.dolzn = dolzn;
 		this.kategory = kategory;
 	}
@@ -29,57 +29,75 @@ public class Doctor {
 		if (age > 0 && age < 120){
 			return age;
 		}
-		else{ 
-			System.out.print("Age of doctor (from 1 to 120)\n");
+		else 
+		{ 
+			System.out.print("Îøèáêà. Âîçğàñò äîêòîğà äîëæåí áûòü â ïğîìåæóòêå îò 0 äî 120\n");
 			return -1;
 		}	
 	}
 
-	public String phone_check(String phone){
-		
-		//boolean result = phone.matches("^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[- .]?\\d{4}$");
-		boolean result = phone.matches("(\\+*)\\d{11}");
-
-		if(result){
-    		return phone;
-		}
-		else{
-    		return "Error";    
-		}
-	}
-
 	public void input(){
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Doctor FIO : ");
-		this.fio = scanner.nextLine();
-				
-		while (age < 0){
-			System.out.print("Doctor Age: ");
+		Scanner scanner = new Scanner(System.in);				
+		do
+        {	
+			System.out.print("ÔÈÎ âğà÷à: ");
+            if (scanner.hasNextLine()){               
+            	this.fio = scanner.nextLine();
+            }           
+            else
+            {
+                System.out.println("Êàòåãîğèÿ ââåä¸íà íåïğàâèëüíî. Ïîâòîğèòå ââîä.\\n");    
+                scanner.nextLine();
+            }
+        } while (this.fio == "");
+			
+		do 
+		{
+			System.out.print("Âîçğàñò âğà÷à: ");
 			try {
 
 				this.age = age_check(scanner.nextInt()); 
 			}
 			catch (Exception e){
-				System.out.print("Age Error.\n");				
+				System.out.print("Âîçğàñò âğà÷à ââåä¸í íåïğàâèëüíî. Ïîâòîğèòå ââîä.\n");				
 				age = -1;
 				scanner.nextLine();
 			}
 			
-		}
+		} while (age < 0);
 		scanner.nextLine();
-		while (phone == "Error"){
-			System.out.print("Doctor Phone: ");
-			this.phone = phone_check(scanner.nextLine()); 
-		}
 
+		do
+        {	
+			System.out.print("Òåëåôîí âğà÷à: ");
+            if (scanner.hasNextLine()){               
+                this.phone = scanner.nextLine();
+            }           
+            else
+            {
+                System.out.println("Òåëåôîí âğà÷à ââåä¸í íåïğàâèëüíî. Ïîâòîğèòå ââîä.\\n");    
+                scanner.nextLine();
+            }
+        } while (this.phone == "");
+		
 		this.dolzn.input();
-
-		System.out.print("Kategory: ");
-		this.kategory = scanner.nextLine();
+		
+		do
+        {	
+			System.out.print("Êàòåãîğèÿ: ");
+            if (scanner.hasNextLine()){               
+            	this.kategory = scanner.nextLine();
+            }           
+            else
+            {
+                System.out.println("Êàòåãîğèÿ ââåä¸íà íåïğàâèëüíî. Ïîâòîğèòå ââîä.\\n");    
+                scanner.nextLine();
+            }
+        } while (this.kategory == "");
 	}
 
 	public void output(){
-		System.out.print("Doctor FIO: " + this.fio + ", Doctor Age: " + this.age + ", Doctor Phone: " + this.phone + ", Doctor Dolznost: " + this.dolzn.title + ", Êàòåãîğèÿ: " + this.kategory + "\n");
+		System.out.print("ÔÈÎ âğà÷à: " + this.fio + ", Âîçğàñò âğà÷à: " + this.age + ", Òåëåôîí âğà÷à: " + this.phone + ", Äîëæíîñòü: " + this.dolzn.title + ", Êàòåãîğèÿ: " + this.kategory + "\n");
 	}
 
 }

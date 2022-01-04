@@ -4,15 +4,16 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		
-		String name = "vasya";
+		/*String name = "vasya";
 		Patient pat = new Patient(name, 23, "+79879872323");
 		name = "petya";
 		Patient pat2 = new Patient();
 		pat2.input();
 		pat.output();
-		pat2.output();
+		pat2.output();*/
 
-		/*Scanner in = new Scanner(System.in); 
+		//Работа с массивом объектов
+		/*Scanner scanner = new Scanner(System.in); 
 		System.out.println("Введите количество коробок в массиве: ");
         int n;
         n = -1;
@@ -39,8 +40,8 @@ public class Main {
         }
         pat_mass1.get_patmass();*/
         
-        
-        Help obcost = new Help();
+        //Возврат значения из метода через вспомогательный класс
+       /* Help obcost = new Help();
         Zapis zap1 = new Zapis();
         zap1.input();
         zap1.output();
@@ -49,6 +50,7 @@ public class Main {
         System.out.println("Общая стоимость услуг:" + obcost.obch + "\n");
         zap2.ulsuga.cost = 130;
         zap2.obch_cost(obcost);
-        System.out.println("Общая стоимость услуг:" + obcost.obch + "\n");
+        System.out.println("Общая стоимость услуг:" + obcost.obch + "\n");*/
+		
 	}
 }
