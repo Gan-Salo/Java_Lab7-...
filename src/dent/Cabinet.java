@@ -7,41 +7,18 @@ public class Cabinet {
 		int area;
 
 		public Cabinet(){
-			this.number = -1;
-			this.otdelen = "otd";
-			this.area = -1;
+
 		}
-		
+				
 		public Cabinet(int number){
-			this.number = num_check(number);			
+			this.number = number;			
 		}
 
 		public Cabinet(int number, String otdelen, int area){
-			this.number = num_check(number);
+			this.number = number;
 			this.otdelen = otdelen;
-			this.area = area_check(area);
-		}
-
-		public int num_check(int number){
-			if (number > 0 && number < 1000){
-				return number;
-			}
-			else{ 
-				
-				//System.out.print("Îøèáêà. Íîìåğ êàáèíåòà äîëæåí áûòü â ïğîìåæóòêå îò 0 äî 1000\n");
-				return -1;
-			}	
-		}
-
-		public int area_check(int area){
-			if (area > 0 && area < 100000){
-				return area;
-			}
-			else{ 
-				System.out.print("Îøèáêà. Ïëîùàäü êàáèíåòà äîëæíà áûòü â ïğîìåæóòêå îò 0 äî 100000\n");
-				return -1;
-			}	
-		}
+			this.area = area;
+		}		
 
 		public void input(){
 			Scanner scanner = new Scanner(System.in);					

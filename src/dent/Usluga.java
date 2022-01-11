@@ -6,19 +6,26 @@ public class Usluga {
 	String title;
 	int cost;
 	private HelpClass help;
+	static int counter = 0;
 
 	public Usluga(){
-		this.title = "title";
-		this.cost = -1;
+		counter++;
 	}
-
+	
+	public Usluga(String title){
+		this.title = title;
+		counter++;
+	}
+		
 	public Usluga(String title, int cost){
 		this.title = title;
-		this.cost = cost_check(cost);		
+		this.cost = cost_check(cost);
+		counter++;
 	}
 
 	public int cost_check(int cost){
 		if (cost > 0 && cost < 1000000){
+			counter++;
 			return cost;
 		}
 		else{ 
@@ -65,6 +72,11 @@ public class Usluga {
 		this.title = title;
 	}
 	
+	public static void get_kolvo()
+	{
+		System.out.print(counter);
+	}
+	
 	public static void get_cost(HelpClass obch, Usluga usl)
 	{
 		obch.obch_cost += usl.cost;
@@ -74,6 +86,5 @@ public class Usluga {
 class HelpClass {
 	
 	static int obch_cost = 0;	
-	static int counter = 0;
 	
 }

@@ -10,6 +10,10 @@ public class Dolznost {
 		this.title = "Dolznost title";
 		this.podrazdel = "test_pod";
 	}
+	
+	public Dolznost(String title){
+		this.title = title;
+	}
 
 	public Dolznost(String title, String podrazdel){
 		this.title = title;

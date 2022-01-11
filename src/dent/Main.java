@@ -3,42 +3,31 @@ package dent;
 import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
-		
-		/*String name = "vasya";
-		Patient pat = new Patient(name, 23, "+79879872323");
-		name = "petya";
-		Patient pat2 = new Patient();
-		pat2.input();
-		pat.output();
-		pat2.output();*/
-
-		//Работа с массивом объектов
-		/*Scanner scanner = new Scanner(System.in); 
-		System.out.println("Введите количество коробок в массиве: ");
-        int n;
-        n = -1;
-        do
+		Scanner scanner = new Scanner(System.in); 
+		/*Работа с одномерным массивом
+		int n = 0;
+		do
         {
-            if (in.hasNextInt()){
-
-                n = in.nextInt();
+            if (scanner.hasNextInt()){
+				System.out.println("Введите количество элементов массива");   
+                n = scanner.nextInt();
             }
             else
             {
                 System.out.println("Введено неверное значение.");    
-                in.nextLine();
+                scanner.nextLine();
             }
         } while (n <= 0);
         
-        Patient[] pat1 = new Patient[3];
+        Patient[] pat1 = new Patient[n];
              
         int i;
-        for (i = 0; i < 3; i++)
+        for (i = 0; i < n; i++)
         {
         	pat1[i] = new Patient();
         	pat1[i].input();
         }
-        for (i = 0; i < 3; i++)
+        for (i = 0; i < n; i++)
         {
         	pat1[i].output();
         }*/
@@ -80,8 +69,74 @@ public class Main {
 		System.out.println("Смена регистра строки:");
 		System.out.println(test.toUpperCase());*/
 		
-		Cabinet cab = new Cabinet();
+		/*Cabinet cab = new Cabinet();
 		cab.input();
-		cab.output();
+		cab.output();*/
+		
+		/*Массив объектов конструктора с одним параметром
+		System.out.println("Массив пациентов с одним параметром (ФИО): ");
+        Patient[] pat1 = new Patient[3];
+             
+        int i;
+        for (i = 0; i < 3; i++)
+        {
+        	pat1[i] = new Patient("Тестовый пациент №" + (i + 1));
+        	pat1[i].output();
+        }
+		*/
+		
+		/*Двумерный массив объектов
+		int n = 0, k = 0;
+		do
+        {
+			System.out.println("Введите количество строк массива: ");  
+            if (scanner.hasNextInt()){
+                n = scanner.nextInt();
+            }
+            else
+            {
+                System.out.println("Введено неверное значение.");    
+                scanner.nextLine();
+            }
+        } while (n <= 0);
+		
+		do
+        {
+			System.out.println("Введите количество столбцов массива: "); 
+            if (scanner.hasNextInt()){
+                k = scanner.nextInt();
+            }
+            else
+            {
+                System.out.println("Введено неверное значение.");    
+                scanner.nextLine();
+            }
+        } while (k <= 0);
+        
+        Patient[][] pat2 = new Patient[n][k];
+                    
+        for (int i = 0; i < n; i++)
+        {
+        	for (int j = 0; j < k; j++)
+            {
+	        	pat2[i][j] = new Patient();
+	        	pat2[i][j].input();
+            }
+        }
+        for (int i = 0; i < n; i++)
+        {
+        	for (int j = 0; j < k; j++)
+            {
+        		pat2[i][j].output();
+            }
+        }*/
+		
+		/*Статический метод получения текущего количества пациентов*/
+		Usluga usl1 = new Usluga();
+		System.out.println("Количество пациентов после первого добавления: ");  
+		Usluga.get_kolvo();
+		Usluga usl2 = new Usluga();
+		System.out.println("\nКоличество пациентов после второго добавления:");  
+		Usluga.get_kolvo();
 	}
 }

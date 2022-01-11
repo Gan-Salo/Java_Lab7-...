@@ -16,6 +16,11 @@ public class Doctor {
 		this.dolzn = new Dolznost();
 		this.kategory = "kategory";
 	}
+	
+	public Doctor(String fio){
+		this.fio = fio;
+		
+	}
 
 	public Doctor(String fio, int age, String phone, Dolznost dolzn, String kategory){
 		this.fio = fio;
