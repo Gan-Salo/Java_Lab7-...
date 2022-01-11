@@ -7,7 +7,6 @@ public class Patient {
 	String fio;
 	int age;
 	String phone;
-	ArrayList<Patient> pat_mass = new ArrayList<Patient>();
 
 	public Patient(){
 		this.fio = "fio";
@@ -84,17 +83,4 @@ public class Patient {
 		System.out.print("ФИО пациента: " + this.fio + ", Возраст пациента: " + this.age + ", Телефон пациента: " + this.phone + "\n");
 	}
 	
-	public void get_patmass(){
-		Patient pat = new Patient();
-		for (int i = 0; i < pat_mass.size(); i++)
-		{
-			pat = pat_mass.get(i);
-			System.out.println("\nПациент №" + (i + 1) + "\n");
-			pat.output();
-		}
-	}
-		
-	public void pat_kolvo(Patient pat) {
-		pat_mass.add(pat);
-	}
 }

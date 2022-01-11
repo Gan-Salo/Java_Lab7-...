@@ -5,6 +5,7 @@ public class Usluga {
 
 	String title;
 	int cost;
+	private HelpClass help;
 
 	public Usluga(){
 		this.title = "title";
@@ -13,7 +14,7 @@ public class Usluga {
 
 	public Usluga(String title, int cost){
 		this.title = title;
-		this.cost = cost_check(cost);
+		this.cost = cost_check(cost);		
 	}
 
 	public int cost_check(int cost){
@@ -63,5 +64,16 @@ public class Usluga {
 	public void changetitle(String title){
 		this.title = title;
 	}
+	
+	public static void get_cost(HelpClass obch, Usluga usl)
+	{
+		obch.obch_cost += usl.cost;
+	}
+}
+
+class HelpClass {
+	
+	static int obch_cost = 0;	
+	static int counter = 0;
 	
 }

@@ -58,8 +58,5 @@ public class Zapis {
 		
 	}
 
-	public void obch_cost(Help cst) {
-	    cst.obch += this.ulsuga.cost;
 
-	} 
 }

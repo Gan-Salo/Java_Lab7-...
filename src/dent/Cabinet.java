@@ -27,7 +27,8 @@ public class Cabinet {
 				return number;
 			}
 			else{ 
-				System.out.print("\"Îøèáêà. Íîìåğ êàáèíåòà äîëæåí áûòü â ïğîìåæóòêå îò 0 äî 1000\n");
+				
+				//System.out.print("Îøèáêà. Íîìåğ êàáèíåòà äîëæåí áûòü â ïğîìåæóòêå îò 0 äî 1000\n");
 				return -1;
 			}	
 		}
@@ -36,8 +37,7 @@ public class Cabinet {
 			if (area > 0 && area < 100000){
 				return area;
 			}
-			else
-			{ 
+			else{ 
 				System.out.print("Îøèáêà. Ïëîùàäü êàáèíåòà äîëæíà áûòü â ïğîìåæóòêå îò 0 äî 100000\n");
 				return -1;
 			}	
@@ -45,18 +45,25 @@ public class Cabinet {
 
 		public void input(){
 			Scanner scanner = new Scanner(System.in);					
-			while (number == -1){
-				System.out.print("Íîìåğ íàáèíåòà: ");
+			
+			do
+			{	
+				System.out.print("Íîìåğ íàáèíåòà: ");			
 				try 
-				{
-					this.number = num_check(scanner.nextInt()); 
+				{					
+					this.number = scanner.nextInt();					
+					if (number < 0){
+						throw new Exception("Îøèáêà. Äàííûå ââåäåíû íåâåğíî.\n");
+					}
+					 
 				}
 				catch (Exception e){
-					System.out.print("Íîìåğ êàáèíåòà ââåä¸í íåïğàâèëüíî. Ïîâòîğèòå ââîä.\n");				
+					//System.out.print("Íîìåğ êàáèíåòà ââåä¸í íåïğàâèëüíî. Ïîâòîğèòå ââîä.\n");				
 					number = -1;
+					System.out.print(e.getMessage());
 					scanner.nextLine();
 				}		
-			}
+			}while (number == -1);
 			
 			scanner.nextLine();
 			do
@@ -77,10 +84,14 @@ public class Cabinet {
 				System.out.print("Ïëîùàäü êàáèíåòà: ");
 				try 
 				{
-					this.area = area_check(scanner.nextInt()); 
+					this.area = scanner.nextInt(); 
+					if (area < 0){
+						throw new Exception("Îøèáêà. Äàííûå ââåäåíû íåâåğíî.\n");
+					}
 				}
 				catch (Exception e){
-					System.out.print("Ïëîùàäü êàáèíåòà ââåä¸íà íåïğàâèëüíî. Ïîâòîğèòå ââîä.\n");				
+					//out.print("Ïëîùàäü êàáèíåòà ââåä¸íà íåïğàâèëüíî. Ïîâòîğèòå ââîä.\n");				
+					System.out.print(e.getMessage());
 					area = -1;
 					scanner.nextLine();
 				}		
